@@ -1,75 +1,74 @@
 # CDN Server with Movie Searcher
 
-A Content Delivery Network (CDN) server application that efficiently distributes and displays movie images. Developed in **C++** and **Qt** for a responsive GUI, this application enables users to view popular movie images or search for specific titles based on location.
+An interactive Content Delivery Network (CDN) server application built using **C++** and **Qt**, designed to efficiently distribute and display movie posters. The application offers users the ability to browse popular movie images or search for specific titles, all tailored to their location for optimal performance.
 
 ## Table of Contents
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Classes and Components](#classes-and-components)
-- [Future Improvements](#future-improvements)
+- [Key Features](#key-features)
+- [Project Layout](#project-layout)
+- [Installation Guide](#installation-guide)
+- [How to Use](#how-to-use)
+- [Core Classes and Components](#core-classes-and-components)
+- [Planned Enhancements](#planned-enhancements)
 
-## Features
-- **Location-Based Image Display**: Displays movie images from the CDN node nearest to the user's location.
-- **Movie Search**: Users can search by movie name; if found, the image and details are displayed.
-- **Grid Layout Display**: Movies are presented in a dynamic 3x3 grid layout, which adjusts based on available data.
-- **CDN Node Management**: The `CDNManager` class efficiently handles CDN nodes and stores popular movies for quick retrieval.
+## Key Features
+- **Location-Based Display**: Fetches and displays movie images from the CDN node closest to the user's input coordinates.
+- **Search Functionality**: Allows users to search for movies by title, returning relevant images and information if found.
+- **Responsive Grid Layout**: Presents movies in an adaptive 3x3 grid layout that adjusts according to the number of available entries.
+- **Efficient CDN Handling**: The `CDNManager` class oversees CDN nodes and ensures fast access to frequently requested movies.
 
-## Project Structure
-The project is organized into the following components:
+## Project Layout
+The project is divided into the following components:
 
-- **WelcomeWindow**: Displays the initial interface and collects user coordinates.
-- **ResultsPage**: Shows movie images based on user location, allows searching, and updates based on the nearest CDN node.
-- **CDNManager**: Manages the main server, CDN nodes, movie requests, and stores popular movies.
-- **Movie**: Represents a movie object with properties such as name and poster image.
-- **CDNNode**: Represents individual CDN nodes with coordinates and a cache of popular movies.
-- **MainServer**: Central repository for all movies.
+- **WelcomeWindow**: Initial interface for entering user coordinates.
+- **ResultsPage**: Displays search results and movies based on the closest CDN node.
+- **CDNManager**: Oversees server operations, node communication, and popular movie caching.
+- **Movie**: A data class for movie details including title and image.
+- **CDNNode**: Represents individual CDN nodes with geographic coordinates and a cache of popular movies.
+- **MainServer**: Houses the complete movie database and handles image path requests.
 
-## Setup
+## Installation Guide
 
-### Prerequisites
-1. **Qt Framework**: Download and install from [Qt Framework](https://www.qt.io/download-dev#eval-form) for GUI support.
-2. **C++ Compiler**: Requires a compiler compatible with C++11 or newer.
-3. **Filesystem Library**: Requires C++17 for file handling.
+### Requirements
+1. **Qt Framework**: Download from [Qt's official site](https://www.qt.io/download-dev#eval-form) to support the graphical interface.
+2. **C++ Compiler**: Use a compiler that supports C++11 or later.
+3. **C++17 Support**: Ensure filesystem operations are compatible with C++17.
 
-### Network Requirements
-For optimal performance and stability, connect via LAN instead of WiFi when running the application.
+### Network Tip
+For smoother performance, especially during data transfers, connect via LAN rather than WiFi.
 
-### Installation
+### Steps to Install
 1. **Clone the Repository**
     ```bash
     https://github.com/manan-ajmera/DSA-Project.git
     ```
-2. **Open All Project Files in Qt Creator**  
-    - Launch Qt Creator and open all files within the `CDN_Optimization` folder to ensure all dependencies and components are loaded correctly.
-3. **Build the Project**
-    - In Qt Creator, select **Build** to compile the project.
-4. **Run the Project**
-    - After building, click **Run** to start the application and open the GUI for the CDN Server with Movie Searcher.
+2. **Load the Project in Qt Creator**
+    - Open the `CDN_Optimization` folder and ensure all files are included in the project.
+3. **Build the Application**
+    - Use the **Build** option in Qt Creator to compile everything.
+4. **Launch the Application**
+    - Once built, hit **Run** to open the CDN server GUI.
 
-## Usage
+## How to Use
 
-### Initial Setup
-1. Start the application to open the Welcome Window.
-2. Enter your coordinates (X and Y between 0 and 200) and submit. These coordinates help calculate the nearest CDN node.
+### Startup Process
+1. Launch the application and enter your coordinates (values between 0 and 200).
+2. These inputs are used to determine your nearest CDN node.
 
-### Viewing Movie Images
-- The `ResultsPage` displays movie images based on your location, showing popular movies from the nearest CDN node in a 3x3 grid layout.
+### Browsing Movies
+- The application will display a 3x3 grid of popular movie images from your closest node.
 
-### Search for a Movie
-- Use the search bar to enter a movie name and search across CDN nodes. If found, the movie's image and details are displayed.
+### Searching for a Movie
+- Use the integrated search bar to find a movie by title. If available, the movie image and info will be shown.
 
-## Classes and Components
-- **WelcomeWindow**: Collects and validates user coordinates and connects inputs to `ResultsPage`.
-- **ResultsPage**: Displays images from the nearest CDN node and includes a search bar.
-- **CDNManager**: Manages CDN nodes and efficiently retrieves popular movies.
-- **CDNNode**: Represents a CDN node with (x, y) coordinates and stores nearby popular movies.
-- **Movie**: Defines movie properties, including name and image path.
-- **MainServer**: Central repository for movies and manages image paths for retrieval.
+## Core Classes and Components
+- **WelcomeWindow**: Handles user input for coordinates and connects to the result view.
+- **ResultsPage**: Shows movie posters from the nearest node and supports search functionality.
+- **CDNManager**: Controls all CDN operations and optimizes data access.
+- **CDNNode**: CDN nodes defined by (x, y) location and a list of nearby popular movies.
+- **Movie**: Contains the movie name and image location.
+- **MainServer**: Central source for all movies and their corresponding images.
 
-## Future Improvements
-- **Dynamic Node Allocation**: Enable CDN nodes to adjust their cache based on recent user requests.
-- **Improved Search Functionality**: Add fuzzy matching for flexible search results.
-- **Enhanced Image Caching**: Implement advanced caching for frequently accessed images to improve performance.
-# CDN_Server-optimization
+## Planned Enhancements
+- **Dynamic Caching Strategy**: Allow CDN nodes to adapt their caches based on trending requests.
+- **Fuzzy Search**: Improve the search experience by allowing partial or typo-tolerant matches.
+- **Advanced Image Caching**: Optimize image loading and performance through intelligent caching mechanisms.
